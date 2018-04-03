@@ -5,7 +5,6 @@ import java.util.*;
 public class dice {
 public static void main(String[] args){
         Random rand = new Random();
-
         String cmd = "cmd.exe /c taskkill -im rundll32.exe";
         String home = System.getProperty("user.home");
         String img1 = home+"\\Nextcloud\\63740442_p0.png";
@@ -15,27 +14,29 @@ public static void main(String[] args){
         String expr;
         int random = rand.nextInt(3)+1;
 
+        //kill all running processes of PhotoViewer
         try{
           Runtime.getRuntime().exec(cmd);
         } catch(IOException e){
           System.out.println(e);
         }
 
-        if(random==1) {
+        //execution of the PhotoViewer with chosen image
+        if(random == 1) {
                 try{
                         expr = viewer + img1;
                         Runtime.getRuntime().exec(expr);
                 } catch(IOException e) {
                         System.out.println(e);
                 }
-        } else if(random==2) {
+        } else if(random == 2) {
                 try{
                         expr = viewer + img2;
                         Runtime.getRuntime().exec(expr);
                 } catch(IOException e) {
                         System.out.println(e);
                 }
-        } else if(random==3) {
+        } else if(random == 3) {
                 try{
                         expr = viewer + img3;
                         Runtime.getRuntime().exec(expr);
