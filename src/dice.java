@@ -6,27 +6,35 @@ public class dice {
 public static void main(String[] args){
         Random rand = new Random();
         String home = System.getProperty("user.home");
-        String expr;
+        String img1 = "63740442_p0.png";
+        String img2 = "c7906b68f44be6e1aac7357dd54e520b.jpg";
+        String img3 = "wallhaven-384721.png";
+        String abs_img1 = "";
+        String abs_img2 = "";
+        String abs_img3 = "";
+        String kill_cmd = "";
+        String viewer = "";
+        String expr = "";
         int random = rand.nextInt(3)+1;
 
         //determine which os is being used
-        if(System.get("os.name") == "Windows 10"){
-            String cmd = "cmd.exe /c taskkill -im rundll32.exe";
-            String img1 = home+"\\Nextcloud\\63740442_p0.png";
-            String img2 = home+"\\Nextcloud\\c7906b68f44be6e1aac7357dd54e520b.jpg";
-            String img3 = home+"\\Nextcloud\\wallhaven-384721.png";
-            String viewer = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen ";
-        } else if(System.get("os.name") == "Linux"){
-            String cmd = "pkill eog";
-            String img1 = home+"/Nextcloud/63740442_p0.png";
-            String img2 = home+"/Nextcloud/c7906b68f44be6e1aac7357dd54e520b.jpg";
-            String img3 = home+"/Nextcloud/wallhaven-384721.png";
-            String viewer = "eog ";
+        if(System.getProperty("os.name") == "Windows 10"){
+            kill_cmd = "cmd.exe /c taskkill -im rundll32.exe";
+            abs_img1 = home + "\\Nextcloud\\" + img1;
+            abs_img2 = home + "\\Nextcloud\\" + img2;
+            abs_img3 = home + "\\Nextcloud\\" + img3;
+            viewer = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen ";
+        } else if(System.getProperty("os.name") == "Linux"){
+            kill_cmd = "pkill eog";
+            abs_img1 = home + "/Nextcloud/" + img1;
+            abs_img2 = home + "/Nextcloud/" + img2;
+            abs_img3 = home + "/Nextcloud/" + img3;
+            viewer = "eog ";
         }
 
         //kill all running processes of PhotoViewer
         try{
-          Runtime.getRuntime().exec(cmd);
+          Runtime.getRuntime().exec(kill_cmd);
         } catch(IOException e){
           System.out.println(e);
         }
@@ -34,21 +42,21 @@ public static void main(String[] args){
         //execution of the PhotoViewer with chosen image
         if(random == 1) {
                 try{
-                        expr = viewer + img1;
+                        expr = viewer + abs_img1;
                         Runtime.getRuntime().exec(expr);
                 } catch(IOException e) {
                         System.out.println(e);
                 }
         } else if(random == 2) {
                 try{
-                        expr = viewer + img2;
+                        expr = viewer + abs_img2;
                         Runtime.getRuntime().exec(expr);
                 } catch(IOException e) {
                         System.out.println(e);
                 }
         } else if(random == 3) {
                 try{
-                        expr = viewer + img3;
+                        expr = viewer + abs_img3;
                         Runtime.getRuntime().exec(expr);
                 } catch(IOException e) {
                         System.out.println(e);
