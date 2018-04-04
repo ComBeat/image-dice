@@ -5,26 +5,27 @@ import java.util.*;
 public class dice {
 public static void main(String[] args){
         Random rand = new Random();
+        int random = rand.nextInt(3)+1;
+        String abs_img1 = "";
+        String abs_img2 = "";
+        String abs_img3 = "";
+        String expr = "";
         String home = System.getProperty("user.home");
         String img1 = "63740442_p0.png";
         String img2 = "c7906b68f44be6e1aac7357dd54e520b.jpg";
         String img3 = "wallhaven-384721.png";
-        String abs_img1 = "";
-        String abs_img2 = "";
-        String abs_img3 = "";
         String kill_cmd = "";
+        String os = System.getProperty("os.name");
         String viewer = "";
-        String expr = "";
-        int random = rand.nextInt(3)+1;
 
         //determine which os is being used
-        if(System.getProperty("os.name") == "Windows 10"){
+        if(os.equals("Windows 10")){
             kill_cmd = "cmd.exe /c taskkill -im rundll32.exe";
             abs_img1 = home + "\\Nextcloud\\" + img1;
             abs_img2 = home + "\\Nextcloud\\" + img2;
             abs_img3 = home + "\\Nextcloud\\" + img3;
             viewer = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen ";
-        } else if(System.getProperty("os.name") == "Linux"){
+        } else if(os.equals("Linux")){
             kill_cmd = "pkill eog";
             abs_img1 = home + "/Nextcloud/" + img1;
             abs_img2 = home + "/Nextcloud/" + img2;
