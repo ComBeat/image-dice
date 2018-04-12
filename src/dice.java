@@ -21,15 +21,15 @@ public static void main(String[] args){
         //determine which os is being used
         if(os.equals("Windows 10")){
             kill_cmd = "cmd.exe /c taskkill -im rundll32.exe";
-            abs_img1 = home + "\\Nextcloud\\" + img1;
-            abs_img2 = home + "\\Nextcloud\\" + img2;
-            abs_img3 = home + "\\Nextcloud\\" + img3;
+            abs_img1 = home + "\\Nextcloud\\Images\\" + img1;
+            abs_img2 = home + "\\Nextcloud\\Images\\" + img2;
+            abs_img3 = home + "\\Nextcloud\\Images\\" + img3;
             viewer = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen ";
         } else if(os.equals("Linux")){
             kill_cmd = "pkill eog";
-            abs_img1 = home + "/Nextcloud/" + img1;
-            abs_img2 = home + "/Nextcloud/" + img2;
-            abs_img3 = home + "/Nextcloud/" + img3;
+            abs_img1 = home + "/Nextcloud/Images/" + img1;
+            abs_img2 = home + "/Nextcloud/Images/" + img2;
+            abs_img3 = home + "/Nextcloud/Images/" + img3;
             viewer = "eog ";
         }
 
